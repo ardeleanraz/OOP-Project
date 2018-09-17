@@ -3,7 +3,7 @@ departamente = {}
 
 begin = None
 
-while begin != '9':
+while begin != 'Q':
     if begin == '1':
         ang = input('Numele angajatului este:')
         angajati["angajat"]= ang
@@ -46,7 +46,7 @@ while begin != '9':
     print('6:Lista angajati.')
     print('7:Lista departamente.')
     print('8:Adauga un angajat la un departament')
-    print('9:Iesire.')
+    print('Q:Iesire.')
     begin = input('Choose a option!:')
 
 
