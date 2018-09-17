@@ -41,7 +41,10 @@ while begin != 'q':
         dep2 = input('Scrieti departamentul pe care il doriti:')  
         print(angajati)   
         nume1 = input('Numele angajatului:')
-        departamente_angajati.append({dep2:nume1})
+        if dep2 == departament and nume1 == angajat:
+            departamente_angajati.append({dep2:nume1})
+        else:
+            print('NU AVEM NICI UN DEPARTAMENT SAU UN NUME DE ANGAJAT CARE SA CORESPUNDA')
     if begin == '9':
         print(departamente_angajati)
       
@@ -57,12 +60,6 @@ while begin != 'q':
     print('9:Angajatii sortati pe departamente')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
-
-
-
-
-
-
 
 
 
