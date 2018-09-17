@@ -1,5 +1,5 @@
 angajati ={}
-departamente = {"Departament":"","ID":""}
+departamente = {}
 
 begin = None
 
