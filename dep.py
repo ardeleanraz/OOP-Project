@@ -13,17 +13,11 @@ while begin != 'q':
         
         tel = input('Scrieti numarul de telefon:')
         angajati[n]['telefon'] = tel
-        
-        ID_1 = input('Scrieti ID-ul unic:')
-        angajati[n]['ID'] = ID_1
         n = n +1
        
     if begin == '2':
         departament = input('Numele departamentului este:')
         departamente[m] = {'departament': departament}
-        
-        ID = input('Scrieti ID-ul unic:')
-        departamente[m]['ID'] = ID
         m = m +1
         
     if begin == '3':
@@ -38,7 +32,6 @@ while begin != 'q':
     print('4:Lista departamente.')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
-
 
 
 
