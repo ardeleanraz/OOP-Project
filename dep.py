@@ -1,3 +1,7 @@
+n = 1
+m = 1
+
+
 angajati ={}
 departamente ={}
 begin = None
@@ -12,8 +16,11 @@ while begin != 'q':
         angajati[n]['telefon'] = tel
    
         print(departamente)
-        dep_2 = input('Alegeti un departament din cele existente !:')
-        angajati[n]['nume_departament'] = dep_2
+        departament_id = input('Alegeti id-ul unui departament din cele existente !:')
+        if int(departament_id) in departamente:
+            angajati[n]['departament'] = departament_id
+        else:
+            print('NU AVEM ACEST DEPARTAMENT!')
         n = n +1
 
     if begin == '2':
@@ -26,6 +33,7 @@ while begin != 'q':
 
     if begin == '4':
         print(departamente)
+    
 
 
     print('1:Adauga un nou angajat .')
@@ -34,6 +42,7 @@ while begin != 'q':
     print('4:Lista departamente.')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
+
 
 
 
