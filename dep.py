@@ -5,6 +5,7 @@ m = 1
 angajati ={}
 departamente ={}
 begin = None
+departament = None
 
 while begin != 'q':
     if begin == '1':
