@@ -1,7 +1,6 @@
 n = 1
 m = 1
 
-
 angajati ={}
 departamente ={}
 begin = None
@@ -36,13 +35,24 @@ while begin != 'q':
     
 
 
+
+    if begin == '5':
+        print(departamente)
+        id_departamente = input('Alegeti id-ul pentru care doriti sa printati lista angajatiilor:')
+        for  angajat in angajati.values():
+            if id_departamente == angajat['departament']:
+                print(angajat['nume'])
+            else:
+                print ('NU AVEM ACEST DEPARTAMENT!')
+            
+       
+
     print('1:Adauga un nou angajat .')
     print('2:Adauga un nou departament.')
     print('3:Lista angajati.')
     print('4:Lista departamente.')
+    print('5:Listati angajatii in functie de departamente.')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
-
-
 
 
