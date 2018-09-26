@@ -58,7 +58,10 @@ while begin != 'q':
         id_departament = input('Alegeti id-ul departamentului in care se va face schimbarea:')
         print(angajati)
         id_ang = input('Alegeti id-ul unui angajat:')
-        departamente[int(id_departament)]['manager_departament'] = id_ang
+        if int(id_ang) in angajati and int(id_departament) in departamente:
+            departamente[int(id_departament)]['manager_departament'] = id_ang
+        else:
+            print('NU AVEM ACEST ANGAJAT SAU ACEST DEPARTAMENT')
                     
 
                  
