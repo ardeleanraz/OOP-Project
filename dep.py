@@ -7,6 +7,7 @@ begin = None
 
 
 while begin != 'q':
+    #CREAZA UN ANGAJAT CU DETALII DESPRE ACESTA
     if begin == '1':
         angajat = input('Numele angajatului este:')
         angajati[n] = {'nume': angajat}
@@ -21,18 +22,18 @@ while begin != 'q':
         else:
             print('NU AVEM ACEST DEPARTAMENT!')
         n = n +1
-
+    #CREAZA UN DEPARTAMENT 
     if begin == '2':
         departament = input('Numele departamentului este:')
         departamente[m] = {'nume_departament': departament}
         m = m +1
-        
+    #PRINT LISTA ANGAJATI    
     if begin == '3':
         print(angajati)
-
+    #PRINT LISTA DEPARTAMENTE
     if begin == '4':
         print(departamente)
-    
+    #PRINTEAZA ANGAJATII DINTR-UN DEPARTAMENT ALES DE UTILIZATOR
     if begin == '5':
         print(departamente)
         id_departamente = input('Alegeti id-ul pentru care doriti sa printati lista angajatiilor:')
@@ -41,7 +42,7 @@ while begin != 'q':
                 print(angajat['nume'])
             else:
                 print ('NU AVEM ACEST DEPARTAMENT!')
-    
+    #CREAZA UN MANAGER PENTRU FIECARE DEPARTAMENT 
     if begin == '6':
         print(departamente)
         id_departament = input('Alegeti id-ul departamentului din cele existente:')
@@ -51,7 +52,7 @@ while begin != 'q':
             departamente[int(id_departament)]['manager_departament'] = id_angajat
         else:
             print('Nu avem acest departament sau acest angajat!')
-    
+    #INLOCUIESTE UN MANAGER EXISTENT CU UNUL NOU
     if begin =='7':
         print(departamente)
         id_departament = input('Alegeti id-ul departamentului in care se va face schimbarea:')
@@ -73,5 +74,4 @@ while begin != 'q':
     print('7:Inlocuiti managerul unui departament cu un alt angajat.')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
-
 
