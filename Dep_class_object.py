@@ -1,3 +1,4 @@
+
 class Employee:
     """Represents any departament member. """
 
@@ -20,26 +21,26 @@ class Departament:
         :param str name:  name of the department
         :param int manager_id: the ID of an employee, which is the manager of this department
         """
-        self.name = departament_name
+        self.name = name
         self.manager_id = manager_id
 
 
 
 n = 1
 m = 1
-
+o=1
 angajati = {}
 departamente = {}
 begin = None
 while begin != 'q':
     # CREAZA UN ANGAJAT CU DETALII DESPRE ACESTA
     if begin == '1':
-        nume_angajat = input('Numele angajatului este:')
+        name = input('Numele angajatului este:')
         telephone_number = input('Numarul de telefon al angajatului este:')
         print(departamente)
         departament_id = input('ID-ul departamentului este:')
-        employee = Employee(nume_angajat, telephone_number, int(departament_id))
-        angajati[n] = (nume_angajat, telephone_number, int(departament_id))
+        employee = Employee(name, telephone_number, int(departament_id))
+        angajati[n] = employee
         n = n + 1
 
     if begin == '2':
@@ -47,14 +48,16 @@ while begin != 'q':
         print(angajati)
         manager_id = input('Alegeti id-ul un angajat pe care doriti sa il puneti in functia de manager:')
         departament = Departament(departament_name, int(manager_id))
-        departamente[m] = (departament_name, int(manager_id))
+        departamente[m] = departament
         m = m +1
 
     if begin == '3':
-        print(angajati)
+        for employee_id , employee in angajati.items():
+            print(employee.name, employee.telephone_number , employee.departament_id)
 
     if begin == '4':
-        print(departamente)
+        for departament_id , departament in departamente.items():
+            print(departament.name , departament.manager_id)
 
     if begin == '5':
         print(departamente)
