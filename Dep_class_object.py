@@ -1,8 +1,7 @@
-
 class Employee:
     """Represents any departament member. """
 
-    def __init__(self, name, telephone_number, departament_id):
+    def __init__(self, name, telephone_number, employee_id):
         """
         :param str name: The name of the employee
         :param str telephone_number: The telephone number of an employee
@@ -10,7 +9,7 @@ class Employee:
         """
         self.name = name
         self.telephone_number = telephone_number
-        self.departament_id = departament_id
+        self.employee_id = employee_id
 
 
 class Departament:
@@ -37,36 +36,37 @@ while begin != 'q':
     if begin == '1':
         name = input('Numele angajatului este:')
         telephone_number = input('Numarul de telefon al angajatului este:')
-        print(departamente)
-        departament_id = input('ID-ul departamentului este:')
-        employee = Employee(name, telephone_number, int(departament_id))
+        employee_id = input('ID-ul angajatului este:')
+        employee = Employee( name,  telephone_number,  int(employee_id))
         angajati[n] = employee
         n = n + 1
 
     if begin == '2':
         departament_name = input('Numele departamentului este:')
-        print(angajati)
+        for employee_id , employee in angajati.items():
+            print(employee_id ,':','name:',employee.name, ',' , 'telephone_number:',employee.telephone_number, ',' , 'ID:', employee.employee_id)
         manager_id = input('Alegeti id-ul un angajat pe care doriti sa il puneti in functia de manager:')
         departament = Departament(departament_name, int(manager_id))
-        departamente[m] = departament
+        departamente[m] = departament  
         m = m +1
 
     if begin == '3':
         for employee_id , employee in angajati.items():
-            print(employee.name, employee.telephone_number , employee.departament_id)
+            print('name:',employee.name, ',' , 'telephone_number:',employee.telephone_number, ',' , 'departament_ID:', employee.employee_id)
 
     if begin == '4':
         for departament_id , departament in departamente.items():
-            print(departament.name , departament.manager_id)
+            print('departament_name:',  departament.name , ',' , 'Departament_manager:', departament.manager_id)
 
     if begin == '5':
-        print(departamente)
-        departament_id = input('Alegeti id-ul unui departament!:')
-        for angajat in angajati.values():
-            if int(departament_id) in angajat:
-                print(angajat)
-            else:
-                print('Nu avem acest departament sau departamentul nu are angajati!')
+        for departament_id , departament in departamente.items():
+            print(departament_id,':' , 'departament_name:',  departament.name , ',' , 'Departament_manager:', departament.manager_id)
+  
+        id_departament = input('Alegeti id-ul unui departament!:')
+        for  employee_id , employee in angajati.items():
+            if id_departament == str(employee.employee_id):
+                print(employee.name)
+        
 
 
 
@@ -78,3 +78,4 @@ while begin != 'q':
     print('6:Inlocuiti managerul unui departament cu un alt angajat.')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
+
