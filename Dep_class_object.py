@@ -23,8 +23,9 @@ class Departament:
         self.name = name
         self.manager_id = manager_id
 
+
 def create_users():
-    n = 1
+    global n
     name = input('Numele angajatului este:')
     telephone_number = input('Numarul de telefon al angajatului este:')
     departament_id = input('ID-ul departamentului este:')
@@ -33,7 +34,7 @@ def create_users():
     n = n + 1
 
 def create_departament():
-    m = 1
+    global m
     name = input('Numele departamentului este:')
     for employee_id, employee in angajati.items():
         print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
@@ -78,7 +79,7 @@ def change_dep_manager():
             departament.manager_id = employee_id
 
 def numbers_of_dep_users():
-    o = 0
+    global o
     for departament_id, departament in departamente.items():
         print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
               departament.manager_id)
@@ -90,6 +91,9 @@ def numbers_of_dep_users():
     print(o)
     o = 0
 
+m = 1
+n = 1
+o = 0
 angajati = {}
 departamente = {}
 begin = None
