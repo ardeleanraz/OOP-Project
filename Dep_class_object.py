@@ -24,6 +24,7 @@ class Departament:
         self.manager_id = manager_id
 
 
+
 def create_users():
     global n
     name = input('Numele angajatului este:')
@@ -32,6 +33,7 @@ def create_users():
     employee = Employee(name, telephone_number, int(departament_id))
     angajati[n] = employee
     n = n + 1
+
 
 def create_departament():
     global m
@@ -45,15 +47,18 @@ def create_departament():
     departamente[m] = departament
     m = m + 1
 
+
 def print_users():
     for employee_id, employee in angajati.items():
         print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
               'departament_ID:', employee.departament_id)
 
+
 def print_departament():
     for departament_id, departament in departamente.items():
         print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
               departament.manager_id)
+
 
 def print_users_by_dep_id():
     for departament_id, departament in departamente.items():
@@ -65,21 +70,24 @@ def print_users_by_dep_id():
         if id_departament == str(employee.departament_id):
             print(employee.name)
 
-def change_dep_manager():
-    for employee_id, employee in angajati.items():
-        print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
-              'departament_id:', employee.departament_id)
-    employee_id = input('Alegeti id-ul angajatului pe care doriti sa il puneti in functia de manager!:')
 
+def change_dep_manager():
     for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
-              departament.manager_id)
-        id_manager = input('Alegeti id-ul departamentului unde se va face schimbarea!:')
-        if id_manager in str(departament_id):
-            departament.manager_id = employee_id
+        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:', departament.manager_id)
+    id_departament = input('Alegeti id-ul unui departament!:')
+    if int(id_departament) in departamente:
+        for employee_id, employee in angajati.items():
+            print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
+                  'departament_ID:', employee.departament_id)
+        id_angajat = input('Alegeti id-ul unui angajat!')
+        if int(id_angajat) in angajati:
+            departamente[id_departament]['manager_id'] = int(id_angajat)
+
+
+
 
 def numbers_of_dep_users():
-    global o
+    o = 0
     for departament_id, departament in departamente.items():
         print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
               departament.manager_id)
@@ -89,7 +97,7 @@ def numbers_of_dep_users():
         if id_departament == str(employee.departament_id):
             o += 1
     print(o)
-    o = 0
+
 
 m = 1
 n = 1
@@ -102,10 +110,10 @@ while begin != 'q':
         create_users()
 
     if begin == '2':
-         create_departament()
+        create_departament()
 
     if begin == '3':
-         print_users()
+        print_users()
 
     if begin == '4':
         print_departament()
@@ -119,7 +127,6 @@ while begin != 'q':
     if begin == '7':
         numbers_of_dep_users()
 
-
     print('1:Adauga un nou angajat .')
     print('2:Adauga un nou departament.')
     print('3:Lista angajati.')
@@ -129,3 +136,4 @@ while begin != 'q':
     print('7:Printati numarul de angajati dintr-un departament!')
     print('Q:Iesire.')
     begin = input('Choose a option!:')
+
