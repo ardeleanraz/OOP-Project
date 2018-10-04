@@ -28,6 +28,9 @@ def create_users():
     global n
     name = input('Numele angajatului este:')
     telephone_number = input('Numarul de telefon al angajatului este:')
+    for departament_id, departament in departamente.items():
+        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
+              departament.manager_id)
     departament_id = input('ID-ul departamentului este:')
     if int(departament_id) in departamente:
         employee = Employee(name, telephone_number, int(departament_id))
@@ -91,7 +94,7 @@ def change_dep_manager():
                   'departament_ID:', employee.departament_id)
         id_angajat = input('Alegeti id-ul unui angajat!')
         if int(id_angajat) in angajati:
-            departamente[1]['manager_id'] = int(id_angajat)
+            departamente[id_departament]['manager_id'] = int(id_angajat)
 
 
 def numbers_of_dep_users():
@@ -152,5 +155,6 @@ while begin != 'q':
     print('Q:Iesire.')
 
     begin = input('Choose a option!:')
+
 
 
