@@ -5,7 +5,7 @@ class Employee:
         """
         :param str name: The name of the employee
         :param str telephone_number: The telephone number of an employee
-        :param int departament_id: the ID of the department that this employee works in
+        :param int|None department_id: the ID of the department that this employee works in
         """
         self.name = name
         self.telephone_number = telephone_number
@@ -18,10 +18,16 @@ class Departament:
     def __init__(self, name, manager_id):
         """
         :param str name:  name of the department
-        :param int manager_id: the ID of an employee, which is the manager of this department
+        ::param int|None manager_id: the ID of an employee, which is the manager of this department
         """
         self.name = name
         self.manager_id = manager_id
+
+def find_employee_id():
+    id_angajat = input('Alegeti id-ul unui angajat!')
+    if int(id_angajat) not in angajati:
+        return
+
 
 
 def create_users():
@@ -34,13 +40,12 @@ def create_users():
     departament_id = input('ID-ul departamentului este:')
     if int(departament_id) in departamente:
         employee = Employee(name, telephone_number, int(departament_id))
-        angajati[n] = employee
+
     else:
         employee = Employee(name, telephone_number, None)
-        angajati[n] = employee
 
+    angajati[n] = employee
     n = n + 1
-
 
 
 def create_departament():
@@ -52,12 +57,12 @@ def create_departament():
     manager_id = input('Alegeti id-ul un angajat pe care doriti sa il puneti in functia de manager:')
     if int(manager_id) in angajati:
         departament = Departament(name, int(manager_id))
-        departamente[m] = departament
 
     else:
         departament = Departament(name, None)
-        departamente[m] = departament
-    
+
+
+    departamente[m] = departament
     m = m + 1
 
 
@@ -94,9 +99,9 @@ def change_dep_manager():
         for employee_id, employee in angajati.items():
             print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
                   'departament_ID:', employee.departament_id)
-        id_angajat = input('Alegeti id-ul unui angajat!')
-        if int(id_angajat) in angajati:
-            departamente[id_departament]['manager_id'] = int(id_angajat)
+
+        if find_employee_id():
+            departamente[id_departament]['manager_id'] = find_employee_id()
 
 
 def numbers_of_dep_users():
