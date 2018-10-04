@@ -51,7 +51,7 @@ def create_departament():
     for employee_id, employee in angajati.items():
         print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
               'ID:', employee.departament_id)
-    manager_id = read_departament_id()
+    manager_id = read_employee_id()
     if int(manager_id) in angajati:
         departament = Departament(name, int(manager_id))
 
@@ -96,7 +96,7 @@ def change_dep_manager():
         print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',','departament_ID:', employee.departament_id)
 
     id_angajat = read_employee_id()
-    departamente[id_departament]['manager_id'] = id_angajat
+    departamente[id_departament].manager_id = id_angajat
 
 
 
@@ -117,7 +117,7 @@ def numbers_of_dep_users():
 def read_employee_id():
     try:
         id_angajat = input('Alegeti id-ul unui angajat!')
-        if int(id_angajat) not in angajati:
+        if int(id_angajat) in angajati:
             return int(id_angajat)
     except TypeError:
         return  None
@@ -125,10 +125,11 @@ def read_employee_id():
 def read_departament_id():
     try:
         id_departament = input('Alegeti id-ul unui departament!:')
-        if int(id_departament) not in departamente:
+        if int(id_departament) in departamente:
             return int(id_departament)
     except TypeError:
         return None
+
 
 
 
@@ -177,7 +178,5 @@ while begin != 'q':
     print('Q:Iesire.')
 
     begin = input('Choose a option!:')
-
-
 
 
