@@ -35,11 +35,12 @@ def create_users():
     if int(departament_id) in departamente:
         employee = Employee(name, telephone_number, int(departament_id))
         angajati[n] = employee
-        n = n + 1
     else:
         employee = Employee(name, telephone_number, None)
         angajati[n] = employee
-        n = n + 1
+
+    n = n + 1
+
 
 
 def create_departament():
