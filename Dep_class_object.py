@@ -51,7 +51,7 @@ def create_departament():
     for employee_id, employee in angajati.items():
         print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
               'ID:', employee.departament_id)
-    manager_id = input('Alegeti id-ul un angajat pe care doriti sa il puneti in functia de manager:')
+    manager_id = read_departament_id()
     if int(manager_id) in angajati:
         departament = Departament(name, int(manager_id))
 
@@ -89,16 +89,14 @@ def print_users_by_dep_id():
 
 def change_dep_manager():
     for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
-              departament.manager_id)
-    id_departament = input('Alegeti id-ul unui departament!:')
-    if int(id_departament) in departamente:
-        for employee_id, employee in angajati.items():
-            print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
-                  'departament_ID:', employee.departament_id)
+        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:', departament.manager_id)
+    id_departament = read_departament_id()
 
-        id_angajat = read_employee_id()
-        departamente[id_departament]['manager_id'] = id_angajat
+    for employee_id, employee in angajati.items():
+        print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',','departament_ID:', employee.departament_id)
+
+    id_angajat = read_employee_id()
+    departamente[id_departament]['manager_id'] = id_angajat
 
 
 
@@ -124,10 +122,19 @@ def read_employee_id():
     except TypeError:
         return  None
 
+def read_departament_id():
+    try:
+        id_departament = input('Alegeti id-ul unui departament!:')
+        if int(id_departament) not in departamente:
+            return int(id_departament)
+    except TypeError:
+        return None
+
+
 
 m = 1
 n = 1
-o = 0
+
 angajati = {}
 departamente = {}
 begin = None
@@ -170,6 +177,7 @@ while begin != 'q':
     print('Q:Iesire.')
 
     begin = input('Choose a option!:')
+
 
 
 
