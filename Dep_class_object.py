@@ -53,11 +53,12 @@ def create_departament():
     if int(manager_id) in angajati:
         departament = Departament(name, int(manager_id))
         departamente[m] = departament
-        m = m + 1
+
     else:
         departament = Departament(name, None)
         departamente[m] = departament
-        m = m + 1
+    
+    m = m + 1
 
 
 
