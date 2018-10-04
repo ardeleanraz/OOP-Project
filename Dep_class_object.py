@@ -23,10 +23,7 @@ class Departament:
         self.name = name
         self.manager_id = manager_id
 
-def find_employee_id():
-    id_angajat = input('Alegeti id-ul unui angajat!')
-    if int(id_angajat) not in angajati:
-        return
+
 
 
 
@@ -100,8 +97,10 @@ def change_dep_manager():
             print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
                   'departament_ID:', employee.departament_id)
 
-        if find_employee_id():
-            departamente[id_departament]['manager_id'] = find_employee_id()
+        id_angajat = read_employee_id()
+        departamente[id_departament]['manager_id'] = id_angajat
+
+
 
 
 def numbers_of_dep_users():
@@ -115,6 +114,15 @@ def numbers_of_dep_users():
         if id_departament == str(employee.departament_id):
             o += 1
     print(o)
+
+
+def read_employee_id():
+    try:
+        id_angajat = input('Alegeti id-ul unui angajat!')
+        if int(id_angajat) not in angajati:
+            return int(id_angajat)
+    except TypeError:
+        return  None
 
 
 m = 1
