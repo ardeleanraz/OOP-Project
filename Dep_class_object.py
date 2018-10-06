@@ -11,6 +11,9 @@ class Employee:
         self.telephone_number = telephone_number
         self.departament_id = departament_id
 
+    def __str__(self):
+        return '{self.name, self.telephone_number, self.departament_id}'.format(self=self)
+
 
 class Departament:
     """ Represents any departament."""
@@ -23,7 +26,8 @@ class Departament:
         self.name = name
         self.manager_id = manager_id
 
-
+    def __str__(self):
+        return '{self.name , self.manager_id} '.format(self=self)
 
 
 
@@ -41,6 +45,7 @@ def create_users():
     else:
         employee = Employee(name, telephone_number, None)
 
+
     angajati[n] = employee
     n = n + 1
 
@@ -52,7 +57,7 @@ def create_departament():
         print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
               'ID:', employee.departament_id)
     manager_id = read_employee_id()
-    if int(manager_id) in angajati:
+    if manager_id in angajati:
         departament = Departament(name, int(manager_id))
 
     else:
@@ -65,9 +70,7 @@ def create_departament():
 
 
 def print_users():
-    for employee_id, employee in angajati.items():
-        print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
-              'departament_ID:', employee.departament_id)
+    print(angajati)
 
 
 def print_departament():
@@ -129,6 +132,7 @@ def read_departament_id():
             return int(id_departament)
     except TypeError:
         return None
+
 
 
 
