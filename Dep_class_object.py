@@ -39,14 +39,13 @@ def create_users():
     global n
     name = input('Numele angajatului este:')
     telephone_number = input('Numarul de telefon al angajatului este:')
-    print(departamente)
-    departament_id = input('ID-ul departamentului este:')
-    if int(departament_id) in departamente:
-        employee = Employee(name, telephone_number, int(departament_id))
+    employee = Employee(name, telephone_number, None)
 
-    else:
-        employee = Employee(name, telephone_number, None)
-
+    for id_departament  in departamente.keys():
+        if id_departament > 0 :
+            print(departamente)
+            departament_id = input('ID-ul departamentului este:')
+            employee = Employee(name, telephone_number, int(departament_id))
 
     angajati[n] = employee
     n = n + 1
@@ -55,14 +54,12 @@ def create_users():
 def create_departament():
     global m
     name = input('Numele departamentului este:')
-    print(angajati)
-    manager_id = read_employee_id()
-    if manager_id in angajati:
-        departament = Departament(name, int(manager_id))
-
-    else:
-        departament = Departament(name, None)
-
+    departament = Departament(name, None)
+    for employee_id in angajati.keys():
+        if employee_id > 0:
+            print(angajati)
+            manager_id = read_employee_id()
+            departament = Departament(name, int(manager_id))
 
     departamente[m] = departament
     m = m + 1
