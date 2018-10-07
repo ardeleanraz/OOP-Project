@@ -12,8 +12,11 @@ class Employee:
         self.departament_id = departament_id
 
     def __str__(self):
-        return '{self.name, self.telephone_number, self.departament_id}'.format(self=self)
+        return self.name + ',' + self.telephone_number + ',' + str(self.departament_id)
 
+
+    def __repr__(self):
+        return self.name + ',' + self.telephone_number + ',' + str(self.departament_id)
 
 class Departament:
     """ Represents any departament."""
@@ -27,17 +30,16 @@ class Departament:
         self.manager_id = manager_id
 
     def __str__(self):
-        return '{self.name , self.manager_id} '.format(self=self)
+        return self.name + ',' + self.manager_id
 
-
+    def __repr__(self):
+        return self.name + ',' + str(self.manager_id)
 
 def create_users():
     global n
     name = input('Numele angajatului este:')
     telephone_number = input('Numarul de telefon al angajatului este:')
-    for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
-              departament.manager_id)
+    print(departamente)
     departament_id = input('ID-ul departamentului este:')
     if int(departament_id) in departamente:
         employee = Employee(name, telephone_number, int(departament_id))
@@ -53,9 +55,7 @@ def create_users():
 def create_departament():
     global m
     name = input('Numele departamentului este:')
-    for employee_id, employee in angajati.items():
-        print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',',
-              'ID:', employee.departament_id)
+    print(angajati)
     manager_id = read_employee_id()
     if manager_id in angajati:
         departament = Departament(name, int(manager_id))
@@ -74,15 +74,10 @@ def print_users():
 
 
 def print_departament():
-    for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
-              departament.manager_id)
-
+    print(departamente)
 
 def print_users_by_dep_id():
-    for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
-              departament.manager_id)
+    print(departamente)
     id_departament = input('Alegeti id-ul unui departament!:')
 
     for employee_id, employee in angajati.items():
@@ -91,12 +86,10 @@ def print_users_by_dep_id():
 
 
 def change_dep_manager():
-    for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:', departament.manager_id)
+    print(departamente)
     id_departament = read_departament_id()
 
-    for employee_id, employee in angajati.items():
-        print(employee_id, ':', 'name:', employee.name, ',', 'telephone_number:', employee.telephone_number, ',','departament_ID:', employee.departament_id)
+    print(angajati)
 
     id_angajat = read_employee_id()
     departamente[id_departament].manager_id = id_angajat
@@ -106,9 +99,7 @@ def change_dep_manager():
 
 def numbers_of_dep_users():
     o = 0
-    for departament_id, departament in departamente.items():
-        print(departament_id, ':', 'departament_name:', departament.name, ',', 'Departament_manager:',
-              departament.manager_id)
+    print(departamente)
     id_departament = input('Alegeti id-ul departamentului pentru care doriti sa vedeti numarul de angajati !:')
 
     for employee_id, employee in angajati.items():
