@@ -107,6 +107,29 @@ def create_sale():
         vanzari[x] = sales
         x = x + 1
 
+def print_employee_sales():
+    o = 0
+    print(angajati)
+    id_employee = input('Alegeti id-ul angajatului pentru care doriti sa vedeti produsele:')
+
+    for sale_id, sale in vanzari.items():
+        if id_employee == str(sale.employee_id):
+             o += 1
+    print(o)
+
+def print_departament_product():
+    product_dep = []
+    print(departamente)
+    id_departament = input('Alegete id-ul unui departament pentru care doriti sa vedeti produsele :')
+
+    for product_id , product in produse.items():
+        if id_departament in str(product.departament_id):
+            product_dep.append(product.name)
+
+    print(product_dep)
+
+
+
 def create_product():
     global o
 
@@ -261,6 +284,11 @@ while begin != 'q':
     if begin =='11':
         print_product()
 
+    if begin =='12':
+        print_employee_sales()
+
+    if begin == '13':
+        print_departament_product()
 
     print('1:Adauga un nou angajat .')
 
@@ -284,10 +312,12 @@ while begin != 'q':
 
     print('11:Printati produsele!')
 
+    print('12:Printati numarul produselor vandute de un anume angajat!')
+
+    print('13:Printati produsele create de un anume departament!')
+
     print('Q:Iesire.')
 
     begin = input('Choose a option!:')
-
-
 
 
