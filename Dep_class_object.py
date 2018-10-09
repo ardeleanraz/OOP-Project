@@ -15,7 +15,7 @@ class Employee:
         return self.name + ',' + self.telephone_number + ',' + str(self.departament_id)
 
     def __repr__(self):
-        return "{name} {telephone_number} {departament_id}".format(name=self.name,
+        return "{name},{telephone_number},{departament_id}".format(name=self.name,
                                                                    telephone_number=self.telephone_number,
                                                                    departament_id=self.departament_id)
 
@@ -35,7 +35,7 @@ class Departament:
         return self.name + ',' + str(self.manager_id)
 
     def __repr__(self):
-        return "{name}  {manager_id}".format(name=self.name, manager_id=self.manager_id)
+        return "{name}, {manager_id}".format(name=self.name, manager_id=self.manager_id)
 
 
 
@@ -57,11 +57,11 @@ class Product:
         return self.name + str(self.price) + str(self.departament_id)
 
     def __repr__(self):
-        return "{name} {price} {id_departament}".format(name= self.name, price = self.price , id_departament = self.departament_id)
+        return "{name},{price},{id_departament}".format(name= self.name, price = self.price , id_departament = self.departament_id)
 
 
 
-class Sales:
+class Sale:
     """Represent any sales"""
 
     def __init__(self,product_id,year , month, day , employee_id):
@@ -84,53 +84,40 @@ class Sales:
     def __str__(self):
         return self.product_id + self.year + self.month + self.day + self.employee_id
 
+
     def __repr__(self):
-        return "{product_id} {year}/{month}/{day} {employee_id}".format(product_id =self.product_id , year = self.year,
+        return "{product_id},{year}/{month}/{day},{employee_id}".format(product_id =self.product_id , year = self.year,
                                                                         month =self.month , day= self.day ,employee_id =self.employee_id)
 
 
 
-def create_sales():
+def create_sale():
     global x
     if produse:
         product_id = read_product_id()
-    else:
-        product_id = None
-    sales = Sales(product_id, None, None, None, None )
+        year = input('Anul in care s-a fabricat produsul:')
+        month = input('Luna in care s-a fabricat produsul:')
+        day = input('Ziua in care s-a fabricat produsul:')
+        if angajati:
+            employee_id = read_employee_id()
+        else:
+            employee_id = None
 
-    year = input('Anul in care s-a fabricat produsul:')
-    month = input('Luna in care s-a fabricat produsul:')
-    day = input('Ziua in care s-a fabricat produsul:')
-    sales = Sales(product_id ,int(year), int(month) , int(day), None)
-
-    if angajati:
-        employee_id = read_employee_id()
-    else:
-        employee_id = None
-
-    sales = Sales(product_id ,int(year), int(month) , int(day),employee_id)
-    vanzari[x] = sales
-    x = x + 1
-
-
-
-
-
-
+        sales = Sale(product_id, int(year), int(month), int(day), employee_id)
+        vanzari[x] = sales
+        x = x + 1
 
 def create_product():
     global o
-    name = input('Numele produsului este:')
-    price = input('Pretul produsului este:')
-    product = Product(name , price ,None)
+
     if departamente:
         departament_id = read_departament_id()
-    else:
-        departament_id = None
+        name = input('Numele produsului este:')
+        price = input('Pretul produsului este:')
 
-    product = Employee(name , price , departament_id)
-    produse[o] = product
-    o = o + 1
+        product = Employee(name , price , departament_id)
+        produse[o] = product
+        o = o + 1
 
 
 def create_users():
@@ -263,7 +250,7 @@ while begin != 'q':
         numbers_of_dep_users()
 
     if begin == '8':
-        create_sales()
+        create_sale()
 
     if begin == '9':
         print_sales()
@@ -300,5 +287,7 @@ while begin != 'q':
     print('Q:Iesire.')
 
     begin = input('Choose a option!:')
+
+
 
 
