@@ -89,6 +89,11 @@ class Sale:
         return "{product_id},{year}/{month}/{day},{employee_id}".format(product_id =self.product_id , year = self.year,
                                                                         month =self.month , day= self.day ,employee_id =self.employee_id)
 
+def most_expensive_product():
+    product_price = []
+    for id_product, product in produse.items():
+        product_price.append(product.price)
+    print(max(product_price))
 
 
 def create_sale():
@@ -98,6 +103,7 @@ def create_sale():
         year = input('Anul in care s-a fabricat produsul:')
         month = input('Luna in care s-a fabricat produsul:')
         day = input('Ziua in care s-a fabricat produsul:')
+        
         if angajati:
             employee_id = read_employee_id()
         else:
@@ -110,12 +116,14 @@ def create_sale():
 def print_employee_sales():
     o = 0
     print(angajati)
-    id_employee = input('Alegeti id-ul angajatului pentru care doriti sa vedeti produsele:')
+    id_employee = input('Alegeti id-ul angajatului pentru care doriti sa vedeti numarul de produse vandute:')
 
     for sale_id, sale in vanzari.items():
         if id_employee == str(sale.employee_id):
              o += 1
     print(o)
+
+
 
 def print_departament_product():
     product_dep = []
@@ -124,7 +132,7 @@ def print_departament_product():
 
     for product_id , product in produse.items():
         if id_departament in str(product.departament_id):
-            product_dep.append(product.name)
+            product_dep.append(product.price)
 
     print(product_dep)
 
@@ -138,7 +146,7 @@ def create_product():
         name = input('Numele produsului este:')
         price = input('Pretul produsului este:')
 
-        product = Employee(name , price , departament_id)
+        product = Product(name , price , departament_id)
         produse[o] = product
         o = o + 1
 
@@ -290,34 +298,45 @@ while begin != 'q':
     if begin == '13':
         print_departament_product()
 
+    if begin =='14':
+        most_expensive_product()
+
+
+
+
+
     print('1:Adauga un nou angajat .')
-
+    print()
     print('2:Adauga un nou departament.')
-
+    print()
     print('3:Lista angajati.')
-
+    print()
     print('4:Lista departamente.')
-
+    print()
     print('5:Listati angajatii in functie de departamente.')
-
+    print()
     print('6:Inlocuiti managerul unui departament cu un alt angajat.')
-
+    print()
     print('7:Printati numarul de angajati dintr-un departament!')
-
+    print()
     print('8:Creati detalii despre o vanzare!')
-
+    print()
     print('9:Printati vanzarile !')
-
+    print()
     print('10:Creati un nou produs!')
-
+    print()
     print('11:Printati produsele!')
-
-    print('12:Printati numarul produselor vandute de un anume angajat!')
-
-    print('13:Printati produsele create de un anume departament!')
-
+    print()
+    print('12:Printati numarul produselor vandute de un  angajat!')
+    print()
+    print('13:Printati produsele create de un departament!')
+    print()
+    print('14:Printati pretul cel mai mare dintre produse!')
+    print()
     print('Q:Iesire.')
-
+    print()
     begin = input('Choose a option!:')
+
+
 
 
