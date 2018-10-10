@@ -1,3 +1,7 @@
+from departament import departamente
+from read import read_departament_id
+
+
 class Product:
     """Represent any product"""
 
@@ -49,12 +53,3 @@ def most_expensive_product():
     print(max(product_price))
 
 
-
-def read_product_id():
-    print(produse)
-    try:
-        product_id = input('Alegeti id-ul unui produs:')
-        if int(product_id) in produse:
-            return int(product_id)
-    except TypeError:
-        return None

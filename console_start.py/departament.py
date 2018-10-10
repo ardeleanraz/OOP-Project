@@ -1,3 +1,8 @@
+from employee import angajati
+from product import produse
+from read import read_departament_id, read_employee_id
+
+
 class Departament:
     """ Represents any departament."""
 
@@ -89,12 +94,3 @@ def numbers_of_dep_users():
 
 
 
-
-def read_departament_id():
-    print(departamente)
-    try:
-        id_departament = input('Alegeti id-ul unui departament!:')
-        if int(id_departament) in departamente:
-            return int(id_departament)
-    except TypeError:
-        return None

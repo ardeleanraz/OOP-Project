@@ -1,3 +1,8 @@
+from departament import departamente
+from read import read_departament_id
+from sales import vanzari
+
+
 class Employee:
     """Represents any departament member. """
 
@@ -41,14 +46,6 @@ def print_users():
 
 
 
-def read_employee_id():
-    print(angajati)
-    try:
-        angajat_id = input('Alegeti id-ul unui angajat!')
-        if int(angajat_id) in angajati:
-            return int(angajat_id)
-    except TypeError:
-        return None
 
 
 

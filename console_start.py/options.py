@@ -1,3 +1,10 @@
+from departament import create_departament, print_departament, print_users_by_dep_id, change_dep_manager, \
+    numbers_of_dep_users, print_departament_product
+
+from employee import create_users, print_users, print_employee_sales
+from product import create_product, print_product, most_expensive_product
+from sales import create_sale, print_sales
+
 begin = None
 while begin != 'q':
     if begin == '1':

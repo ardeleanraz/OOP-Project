@@ -1,3 +1,7 @@
+from product import produse
+from read import read_product_id, read_employee_id
+
+
 class Sale:
     """Represent any sales"""
 
@@ -40,6 +44,7 @@ def create_sale():
         month = input('Luna in care s-a fabricat produsul:')
         day = input('Ziua in care s-a fabricat produsul:')
 
+        from employee import angajati
         if angajati:
             employee_id = read_employee_id()
         else:
