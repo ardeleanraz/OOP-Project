@@ -1,8 +1,8 @@
-from departament import departamente
-from read import read_departament_id
+
 
 
 class Product:
+    product_current_idx = 1
     """Represent any product"""
 
     def __init__(self, name, price, departament_id):
@@ -22,32 +22,35 @@ class Product:
     def __repr__(self):
         return "{name},{price},{id_departament}".format(name= self.name, price = self.price , id_departament = self.departament_id)
 
-o = 1
-produse = {}
+
 
 
 def create_product():
-    global o
 
+    from options import departamente
     if departamente:
+        from read import read_departament_id
         departament_id = read_departament_id()
         name = input('Numele produsului este:')
         price = input('Pretul produsului este:')
 
         product = Product(name, price, departament_id)
-        produse[o] = product
-        o = o + 1
+        from options import produse
+        produse[Product.product_current_idx] = product
+        Product.product_current_idx += 1
 
 
 
 
 def print_product():
+    from options import produse
     print(produse)
 
 
 
 def most_expensive_product():
     product_price = []
+    from options import produse
     for id_product, product in produse.items():
         product_price.append(product.price)
     print(max(product_price))
