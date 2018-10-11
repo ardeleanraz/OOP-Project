@@ -1,6 +1,6 @@
 def read_departament_id():
 
-    from classe import Departament
+    from departament import Departament
     print(Departament.members)
     try:
         id_departament = input('Alegeti id-ul unui departament!:')
@@ -13,7 +13,8 @@ def read_departament_id():
 
 def read_employee_id():
 
-    from classe import Employee
+
+    from employee import Employee
     print(Employee.members)
     try:
         angajat_id = input('Alegeti id-ul unui angajat!')
@@ -27,7 +28,8 @@ def read_employee_id():
 
 def read_product_id():
 
-    from classe import Product
+
+    from product import Product
     print(Product.items)
     try:
         product_id = input('Alegeti id-ul unui produs:')
