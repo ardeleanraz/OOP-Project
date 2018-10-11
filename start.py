@@ -1,52 +1,51 @@
-from departament import create_departament, print_departament, print_users_by_dep_id, change_dep_manager, \
-    numbers_of_dep_users, print_departament_product
-from employee import create_users, print_users, print_employee_sales
-from product import create_product, print_product, most_expensive_product
-from sales import create_sale, print_sales
+from departament import Departament
+from employee import Employee
+from product import Product
+from sales import Sale
 
 begin = None
 while begin != 'q':
     if begin == '1':
-        create_users()
+        Employee.create_users()
 
     if begin == '2':
-        create_departament()
+        Departament.create_departament()
 
     if begin == '3':
-        print_users()
+        Employee.print_users()
 
     if begin == '4':
-        print_departament()
+        Departament.print_departament()
 
     if begin == '5':
-        print_users_by_dep_id()
+        Departament.print_users_by_dep_id()
 
     if begin == '6':
-        change_dep_manager()
+        Departament.change_dep_manager()
 
     if begin == '7':
-        numbers_of_dep_users()
+        Departament.numbers_of_dep_users()
 
     if begin == '8':
-        create_sale()
+        Sale.create_sale()
 
     if begin == '9':
-        print_sales()
+        Sale.print_sales()
 
     if begin == '10':
-        create_product()
+        Product.create_product()
 
     if begin == '11':
-        print_product()
+        Product.print_product()
 
     if begin == '12':
-        print_employee_sales()
+        Employee.print_employee_sales()
 
     if begin == '13':
-        print_departament_product()
+        Departament.print_departament_product()
 
     if begin == '14':
-        most_expensive_product()
+        Product.most_expensive_product()
 
     print('1:Adauga un nou angajat .')
     print()
