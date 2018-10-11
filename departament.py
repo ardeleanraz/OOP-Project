@@ -35,7 +35,7 @@ def create_departament():
     Departament.members[Departament.departament_current_idx] = departament
     Departament.departament_current_idx += 1
 
-
+uhuh
 
 
 def print_departament():
