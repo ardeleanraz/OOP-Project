@@ -1,4 +1,6 @@
 class Employee:
+    employee_current_idx = 1
+    members = {}
     """Represents any departament member. """
 
     def __init__(self, name, telephone_number, departament_id):
@@ -18,47 +20,44 @@ class Employee:
         return "{name},{telephone_number},{departament_id}".format(name=self.name,
                                                                    telephone_number=self.telephone_number,
                                                                    departament_id=self.departament_id)
-angajati = {}
-n = 1
+
+
+
+
 
 def create_users():
-    global n
+
     name = input('Numele angajatului este:')
     telephone_number = input('Numarul de telefon al angajatului este:')
     employee = Employee(name, telephone_number, None)
-    if departamente:
+
+    from departament import Departament
+    if Departament.members:
+        from read import read_departament_id
         departament_id = read_departament_id()
     else:
         departament_id = None
     employee = Employee(name, telephone_number, departament_id)
-    angajati[n] = employee
-    n = n + 1
+
+    Employee.members[Employee.employee_current_idx] = employee
+    Employee.employee_current_idx += 1
 
 
 def print_users():
-    print(angajati)
 
-
-
-
-def read_employee_id():
-    print(angajati)
-    try:
-        angajat_id = input('Alegeti id-ul unui angajat!')
-        if int(angajat_id) in angajati:
-            return int(angajat_id)
-    except TypeError:
-        return None
+    print(Employee.members)
 
 
 
 
 def print_employee_sales():
-    o = 0
-    print(angajati)
+
+    number_of_sales = 0
+    print(Employee.members)
     id_employee = input('Alegeti id-ul angajatului pentru care doriti sa vedeti numarul de produse vandute:')
 
-    for sale_id, sale in vanzari.items():
+    from sales import Sale
+    for sale_id, sale in Sale.items.items():
         if id_employee == str(sale.employee_id):
-             o += 1
-    print(o)
+             number_of_sales += 1
+    print(number_of_sales)

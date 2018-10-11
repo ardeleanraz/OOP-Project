@@ -1,3 +1,9 @@
+from departament import create_departament, print_departament, print_users_by_dep_id, change_dep_manager, \
+    numbers_of_dep_users, print_departament_product
+from employee import create_users, print_users, print_employee_sales
+from product import create_product, print_product, most_expensive_product
+from sales import create_sale, print_sales
+
 begin = None
 while begin != 'q':
     if begin == '1':
@@ -27,23 +33,20 @@ while begin != 'q':
     if begin == '9':
         print_sales()
 
-    if begin =='10':
+    if begin == '10':
         create_product()
 
-    if begin =='11':
+    if begin == '11':
         print_product()
 
-    if begin =='12':
+    if begin == '12':
         print_employee_sales()
 
     if begin == '13':
         print_departament_product()
 
-    if begin =='14':
+    if begin == '14':
         most_expensive_product()
-
-
-
 
     print('1:Adauga un nou angajat .')
     print()
