@@ -3,6 +3,7 @@
 
 class Product:
     product_current_idx = 1
+    items = {}
     """Represent any product"""
 
     def __init__(self, name, price, departament_id):
@@ -27,31 +28,31 @@ class Product:
 
 def create_product():
 
-    from options import departamente
-    if departamente:
+
+    from departament import Departament
+    if Departament.members:
         from read import read_departament_id
         departament_id = read_departament_id()
         name = input('Numele produsului este:')
         price = input('Pretul produsului este:')
 
         product = Product(name, price, departament_id)
-        from options import produse
-        produse[Product.product_current_idx] = product
+
+        Product.items[Product.product_current_idx] = product
         Product.product_current_idx += 1
 
 
 
 
 def print_product():
-    from options import produse
-    print(produse)
+
+    print(Product.items)
 
 
 
 def most_expensive_product():
     product_price = []
-    from options import produse
-    for id_product, product in produse.items():
+    for id_product, product in Product.items.items():
         product_price.append(product.price)
     print(max(product_price))
 

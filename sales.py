@@ -1,6 +1,7 @@
 
 class Sale:
     sale_current_idx = 1
+    items = {}
     """Represent any sales"""
 
     def __init__(self,product_id,year , month, day , employee_id):
@@ -35,9 +36,9 @@ class Sale:
 
 
 def create_sale():
+    from product import Product
 
-    from options import produse
-    if produse:
+    if Product.items:
         from read import read_product_id
         product_id = read_product_id()
         year = input('Anul in care s-a fabricat produsul:')
@@ -51,12 +52,10 @@ def create_sale():
         else:
             employee_id = None
 
-        sales = Sale(product_id, int(year), int(month), int(day), employee_id)
-        from options import vanzari
-        vanzari[Sale.sale_current_idx] = sales
+        sale = Sale(product_id, int(year), int(month), int(day), employee_id)
+        Sale.items[Sale.sale_current_idx] = sale
         Sale.sale_current_idx += 1
 
 
 def print_sales():
-    from options import vanzari
-    print(vanzari)
+    print(Sale.items)

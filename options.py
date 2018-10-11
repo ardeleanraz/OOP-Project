@@ -5,14 +5,6 @@ from product import create_product, print_product, most_expensive_product
 from sales import create_sale, print_sales
 
 
-vanzari = {}
-
-departamente = {}
-
-angajati = {}
-
-produse = {}
-
 
 begin = None
 while begin != 'q':
