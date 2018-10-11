@@ -18,6 +18,7 @@ class Sale:
         self.day = day
         self.employee_id = employee_id
 
+    @staticmethod
     def create_sale():
 
         from product import Product

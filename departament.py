@@ -11,6 +11,7 @@ class Departament:
         self.name = name
         self.manager_id = manager_id
 
+    @staticmethod
     def create_departament():
 
         name = input('Numele departamentului este:')

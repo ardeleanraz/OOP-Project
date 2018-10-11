@@ -13,6 +13,7 @@ class Employee:
         self.telephone_number = telephone_number
         self.departament_id = departament_id
 
+    @staticmethod
     def create_users():
 
         name = input('Numele angajatului este:')
