@@ -13,6 +13,7 @@ class Employee:
         self.telephone_number = telephone_number
         self.departament_id = departament_id
 
+
     @staticmethod
     def create_users():
 
@@ -31,8 +32,9 @@ class Employee:
         Employee.members[Employee.employee_current_idx] = employee
         Employee.employee_current_idx += 1
 
-    def print_users():
 
+
+    def print_users():
         print(Employee.members)
 
     def print_employee_sales():
@@ -56,7 +58,6 @@ class Employee:
         return "{name},{telephone_number},{departament_id}".format(name=self.name,
                                                                    telephone_number=self.telephone_number,
                                                                    departament_id=self.departament_id)
-
 
 
 

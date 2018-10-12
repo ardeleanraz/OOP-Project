@@ -1,6 +1,4 @@
 
-
-
 class Product:
     product_current_idx = 1
     items = {}
@@ -32,6 +30,10 @@ class Product:
             Product.items[Product.product_current_idx] = product
             Product.product_current_idx += 1
 
+
+
+
+
     def print_product():
 
         print(Product.items)
@@ -50,7 +52,3 @@ class Product:
 
     def __repr__(self):
         return "{name},{price},{id_departament}".format(name= self.name, price = self.price , id_departament = self.departament_id)
-
-
-
-

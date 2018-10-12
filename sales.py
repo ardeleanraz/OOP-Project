@@ -41,6 +41,8 @@ class Sale:
             Sale.items[Sale.sale_current_idx] = sale
             Sale.sale_current_idx += 1
 
+
+
     def print_sales():
         print(Sale.items)
 

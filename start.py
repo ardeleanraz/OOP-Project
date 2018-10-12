@@ -1,7 +1,42 @@
+
 from departament import Departament
 from employee import Employee
 from product import Product
 from sales import Sale
+
+with open('angajati.txt') as angajati:
+    for line in angajati:
+        print(line)
+
+with open('departamente.txt') as departamente:
+    for line in departamente:
+        print(line)
+
+with open('vanzari.txt') as vanzari:
+    for line in vanzari:
+        print(line)
+
+with open('produse.txt') as produse:
+    for line in produse:
+        print(line)
+
+
+def save_file():
+    with open('angajati.txt', 'w') as myfile:
+        for key, value in Employee.members.items():
+            myfile.write("{},{}\n".format(key, value))
+
+    with open('departamente.txt', 'w') as myfile:
+        for key, value in Departament.members.items():
+            myfile.write("{},{}\n".format(key, value))
+
+    with open('vanzari.txt', 'w') as myfile:
+        for key, value in Sale.items.items():
+            myfile.write("{},{}\n".format(key, value))
+
+    with open('produse.txt', 'w') as myfile:
+        for key, value in Product.items.items():
+            myfile.write("{},{}\n".format(key, value))
 
 begin = None
 while begin != 'q':
@@ -46,6 +81,11 @@ while begin != 'q':
 
     if begin == '14':
         Product.most_expensive_product()
+
+    if begin == 'q':
+        save_file()
+
+
 
     print('1:Adauga un nou angajat .')
     print()

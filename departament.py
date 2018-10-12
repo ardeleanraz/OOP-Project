@@ -27,6 +27,8 @@ class Departament:
         Departament.members[Departament.departament_current_idx] = departament
         Departament.departament_current_idx += 1
 
+
+
     def print_departament():
 
             print(Departament.members)
@@ -81,14 +83,6 @@ class Departament:
 
     def __repr__(self):
         return "{name}, {manager_id}".format(name=self.name, manager_id=self.manager_id)
-
-
-
-
-
-
-
-
 
 
 
