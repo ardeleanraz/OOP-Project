@@ -36,6 +36,7 @@ def save_file():
 
     with open('produse.txt', 'w') as myfile:
         for key, value in Product.items.items():
+
             myfile.write("{},{}\n".format(key, value))
 
 begin = None
