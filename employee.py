@@ -54,7 +54,7 @@ class Employee:
 
 
     def __str__(self):
-        return self.name + ',' + self.telephone_number + ',' + str(self.departament_id)
+      return 'Name:' + self.name + ',' + 'Telephone_Number:' +self.telephone_number + ',' +'Departament_id: ' + str(self.departament_id)
 
     def __repr__(self):
         return "{name},{telephone_number},{departament_id}".format(name=self.name,

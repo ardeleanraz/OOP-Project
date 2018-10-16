@@ -1,25 +1,7 @@
-
-from departament import Departament
 from employee import Employee
-from product import Product
 from sales import Sale
-
-with open('angajati.txt') as angajati:
-    for line in angajati:
-        print(line)
-
-with open('departamente.txt') as departamente:
-    for line in departamente:
-        print(line)
-
-with open('vanzari.txt') as vanzari:
-    for line in vanzari:
-        print(line)
-
-with open('produse.txt') as produse:
-    for line in produse:
-        print(line)
-
+from departament import Departament
+from product import Product
 
 def save_file():
     with open('angajati.txt', 'w') as myfile:
@@ -36,11 +18,11 @@ def save_file():
 
     with open('produse.txt', 'w') as myfile:
         for key, value in Product.items.items():
-
             myfile.write("{},{}\n".format(key, value))
 
 begin = None
 while begin != 'q':
+
     if begin == '1':
         Employee.create_users()
 
@@ -83,8 +65,10 @@ while begin != 'q':
     if begin == '14':
         Product.most_expensive_product()
 
-    if begin == 'q':
+    if begin == 's':
         save_file()
+
+
 
 
 
@@ -118,4 +102,5 @@ while begin != 'q':
     print()
     print('Q:Iesire.')
     print()
+    print('S:Salvati datele introduse')
     begin = input('Choose a option!:')

@@ -24,7 +24,6 @@ class Product:
             departament_id = read_departament_id()
             name = input('Numele produsului este:')
             price = input('Pretul produsului este:')
-            from classe import Product
             product = Product(name, price, departament_id)
 
             Product.items[Product.product_current_idx] = product
@@ -49,7 +48,7 @@ class Product:
 
 
     def __str__(self):
-        return self.name + str(self.price) + str(self.departament_id)
+        return 'Product_name:' + self.name + ',' + 'Price:' +str(self.price) + ',' + 'Departament_id:' +str(self.departament_id)
 
     def __repr__(self):
         return "{name},{price},{id_departament}".format(name= self.name, price = self.price , id_departament = self.departament_id)

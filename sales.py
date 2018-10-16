@@ -37,7 +37,7 @@ class Sale:
             else:
                 employee_id = None
 
-            from classe import Sale
+
             sale = Sale(product_id, int(year), int(month), int(day), employee_id)
             Sale.items[Sale.sale_current_idx] = sale
             Sale.sale_current_idx += 1
@@ -49,12 +49,12 @@ class Sale:
 
 
     def __str__(self):
-        return self.product_id + self.year + self.month + self.day + self.employee_id
+      return 'Product_id:' +  str(self.product_id) + ',' + 'Year/Month/Day:' +str(self.year) + '/' + str(self.month) + '/' + str(self.day) + ',' +'Employee_id:' + str(self.employee_id)
 
 
     def __repr__(self):
-        return "{product_id},{year}/{month}/{day},{employee_id}".format(product_id =self.product_id , year = self.year,
-                                                                        month =self.month , day= self.day ,employee_id =self.employee_id)
+        return "{product_id},{year}/{month}/{day},{employee_id}".format(product_id =self.product_id, year=self.year,
+                                                                        month=self.month, day=self.day, employee_id=self.employee_id)
 
 
 
