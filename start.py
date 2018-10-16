@@ -4,19 +4,19 @@ from departament import Departament
 from product import Product
 
 def save_file():
-    with open('angajati.txt', 'w') as myfile:
+    with open('storage/angajati.txt', 'w') as myfile:
         for key, value in Employee.members.items():
             myfile.write("{},{}\n".format(key, value))
 
-    with open('departamente.txt', 'w') as myfile:
+    with open('storage/departamente.txt', 'w') as myfile:
         for key, value in Departament.members.items():
             myfile.write("{},{}\n".format(key, value))
 
-    with open('vanzari.txt', 'w') as myfile:
+    with open('storage/vanzari.txt', 'w') as myfile:
         for key, value in Sale.items.items():
             myfile.write("{},{}\n".format(key, value))
 
-    with open('produse.txt', 'w') as myfile:
+    with open('storage/produse.txt', 'w') as myfile:
         for key, value in Product.items.items():
             myfile.write("{},{}\n".format(key, value))
 
