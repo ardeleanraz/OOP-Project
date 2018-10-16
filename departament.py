@@ -12,6 +12,17 @@ class Departament:
         self.manager_id = manager_id
 
     @staticmethod
+    def read_departament_id():
+
+        print(Departament.members)
+        try:
+            id_departament = input('Alegeti id-ul unui departament!:')
+            if int(id_departament) in Departament.members:
+                return int(id_departament)
+        except TypeError:
+            return None
+
+
     def create_departament():
 
         name = input('Numele departamentului este:')
@@ -19,7 +30,7 @@ class Departament:
 
         from employee import Employee
         if Employee.members:
-            from read import read_employee_id
+            from Dep_class_object import read_employee_id
             manager_id = read_employee_id()
         else:
             manager_id = None
@@ -40,7 +51,7 @@ class Departament:
             id_departament = input('Alegete id-ul unui departament pentru care doriti sa vedeti produsele :')
 
             from product import Product
-            for product_id, product in Product.items.items():
+            for product_id, product in Product.members.items():
                 if id_departament in str(product.departament_id):
                     product_dep.append(product.name)
 

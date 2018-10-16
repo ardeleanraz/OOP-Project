@@ -1,7 +1,7 @@
 
 class Product:
     product_current_idx = 1
-    items = {}
+    members= {}
     """Represent any product"""
 
     def __init__(self, name, price, departament_id):
@@ -16,6 +16,17 @@ class Product:
         self.departament_id = departament_id
 
     @staticmethod
+    def read_product_id():
+        print(Product.members)
+        try:
+            product_id = input('Alegeti id-ul unui produs:')
+            if int(product_id) in Product.members:
+                return int(product_id)
+        except TypeError:
+            return None
+
+
+
     def create_product():
 
         from departament import Departament
@@ -26,7 +37,7 @@ class Product:
             price = input('Pretul produsului este:')
             product = Product(name, price, departament_id)
 
-            Product.items[Product.product_current_idx] = product
+            Product.members[Product.product_current_idx] = product
             Product.product_current_idx += 1
 
 
@@ -36,12 +47,12 @@ class Product:
 
     def print_product():
 
-        print(Product.items)
+        print(Product.members)
 
     def most_expensive_product():
 
         product_price = []
-        for id_product, product in Product.items.items():
+        for id_product, product in Product.members.items():
             product_price.append(product.price)
         print(max(product_price))
 

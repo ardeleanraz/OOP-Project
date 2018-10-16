@@ -17,6 +17,18 @@ class Employee:
 
 
     @staticmethod
+    def read_employee_id():
+
+        print(Employee.members)
+        try:
+            angajat_id = input('Alegeti id-ul unui angajat!')
+            if int(angajat_id) in Employee.members:
+                return int(angajat_id)
+        except TypeError:
+            return None
+
+
+
     def create_users():
 
         name = input('Numele angajatului este:')
@@ -25,7 +37,7 @@ class Employee:
 
         from departament import Departament
         if Departament.members:
-            from read import read_departament_id
+
             departament_id = read_departament_id()
         else:
             departament_id = None
@@ -46,7 +58,7 @@ class Employee:
         id_employee = input('Alegeti id-ul angajatului pentru care doriti sa vedeti numarul de produse vandute:')
 
         from sales import Sale
-        for sale_id, sale in Sale.items.items():
+        for sale_id, sale in Sale.members.items():
             if id_employee == str(sale.employee_id):
                 number_of_sales += 1
         print(number_of_sales)
