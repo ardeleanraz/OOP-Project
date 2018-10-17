@@ -7,26 +7,31 @@ from product import Product
 def save_file():
     with open('storage/angajati.txt', 'w') as myfile:
         for key, value in Employee.members.items():
-            myfile.write("{},{} \n".format(key, value))
+            myfile.write("{},{}\n ".format(key, value))
 
     with open('storage/departamente.txt', 'w') as myfile:
         for key, value in Departament.members.items():
-            myfile.write("{},{} \n".format(key, value))
+            myfile.write("{},{}\n ".format(key, value))
 
     with open('storage/vanzari.txt', 'w') as myfile:
         for key, value in Sale.members.items():
-            myfile.write("{},{} \n".format(key, value))
+            myfile.write("{},{}\n ".format(key, value))
 
     with open('storage/produse.txt', 'w') as myfile:
         for key, value in Product.members.items():
-            myfile.write("{},{} \n".format(key, value))
+            myfile.write("{},{}\n ".format(key, value))
 
 
 def read_file():
     with open('storage/angajati.txt') as myfile:
         for line in myfile:
-            key , name , telephone_number , departament_id = line.split(",")
-            employee = Employee(name , telephone_number , departament_id)
+            key, name, telephone_number, departament_id = line.split(",")
+            departament_id = departament_id.strip()
+            if departament_id == "None":
+                employee = Employee(name, telephone_number, None)
+            else:
+                employee = Employee(name, telephone_number, int(departament_id))
+
             Employee.members[int(key)] = employee
 
     with open('storage/departamente.txt') as myfile:
@@ -46,6 +51,7 @@ def read_file():
             key, product_id, year, month, day, employee_id = line.split(",")
             sale = Sale(product_id, year, month, day, employee_id)
             Sale.members[int(key)] = sale
+
 
 begin = None
 while begin != 'q':
@@ -96,7 +102,6 @@ while begin != 'q':
 
     if begin == 'r':
         read_file()
-
 
     print('1:Adauga un nou angajat .')
     print()
