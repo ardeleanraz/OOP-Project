@@ -1,6 +1,3 @@
-from Dep_class_object import read_employee_id
-
-
 class Departament:
     departament_current_idx = 1
     members = {}
@@ -15,17 +12,6 @@ class Departament:
         self.manager_id = manager_id
 
     @staticmethod
-    def read_departament_id():
-
-        print(Departament.members)
-        try:
-            id_departament = input('Alegeti id-ul unui departament!:')
-            if int(id_departament) in Departament.members:
-                return int(id_departament)
-        except TypeError:
-            return None
-
-
     def create_departament():
 
         name = input('Numele departamentului este:')
@@ -34,6 +20,7 @@ class Departament:
         from employee import Employee
         if Employee.members:
 
+            from read import read_employee_id
             manager_id = read_employee_id()
         else:
             manager_id = None

@@ -1,6 +1,3 @@
-from Dep_class_object import read_departament_id
-
-
 class Product:
     product_current_idx = 1
     members= {}
@@ -18,17 +15,6 @@ class Product:
         self.departament_id = departament_id
 
     @staticmethod
-    def read_product_id():
-        print(Product.members)
-        try:
-            product_id = input('Alegeti id-ul unui produs:')
-            if int(product_id) in Product.members:
-                return int(product_id)
-        except TypeError:
-            return None
-
-
-
     def create_product():
 
         from departament import Departament

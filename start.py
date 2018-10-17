@@ -7,15 +7,15 @@ from product import Product
 def save_file():
     with open('storage/angajati.txt', 'w') as myfile:
         for key, value in Employee.members.items():
-            myfile.write("{},{}\n".format(key, value))
+            myfile.write("{},{} \n".format(key, value))
 
     with open('storage/departamente.txt', 'w') as myfile:
         for key, value in Departament.members.items():
-            myfile.write("{},{}\n".format(key, value))
+            myfile.write("{},{} \n".format(key, value))
 
     with open('storage/vanzari.txt', 'w') as myfile:
         for key, value in Sale.members.items():
-            myfile.write("{},{}\n".format(key, value))
+            myfile.write("{},{} \n".format(key, value))
 
     with open('storage/produse.txt', 'w') as myfile:
         for key, value in Product.members.items():
@@ -25,10 +25,9 @@ def save_file():
 def read_file():
     with open('storage/angajati.txt') as myfile:
         for line in myfile:
-            a, b, c, d = line.split(",")
-            key = a
-            value = [b, c, d]
-            Employee.members[key] = value
+            key , name, telephone_number, departament_id = line.split(",")
+            employee = Employee(name, telephone_number, int(departament_id))
+            Employee.members[int(key)] = employee
 
 
 with open('storage/departamente.txt') as myfile:

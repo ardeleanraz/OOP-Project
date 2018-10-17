@@ -1,4 +1,4 @@
-from Dep_class_object import read_product_id, read_employee_id
+
 
 
 class Sale:
@@ -27,7 +27,7 @@ class Sale:
 
         from product import Product
         if Product.members:
-
+            from read import read_product_id
             product_id = read_product_id()
             year = input('Anul in care s-a fabricat produsul:')
             month = input('Luna in care s-a fabricat produsul:')
@@ -36,10 +36,10 @@ class Sale:
             from employee import Employee
             if Employee.members:
 
+                from read import read_employee_id
                 employee_id = read_employee_id()
             else:
                 employee_id = None
-
 
             sale = Sale(product_id, int(year), int(month), int(day), employee_id)
             Sale.members[Sale.sale_current_idx] = sale
