@@ -50,7 +50,7 @@ class Employee:
             print(number_of_sales)
 
     def __str__(self):
-        return 'Name:' + self.name + ',' + 'Telephone_Number:' + self.telephone_number + ',' + 'Departament_id: ' + str(
+        return self.name + ','  + self.telephone_number + ','+ str(
             self.departament_id)
 
     def __repr__(self):

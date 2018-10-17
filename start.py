@@ -19,37 +19,33 @@ def save_file():
 
     with open('storage/produse.txt', 'w') as myfile:
         for key, value in Product.members.items():
-            myfile.write("{},{}\n".format(key, value))
+            myfile.write("{},{} \n".format(key, value))
 
 
 def read_file():
     with open('storage/angajati.txt') as myfile:
         for line in myfile:
-            key , name, telephone_number, departament_id = line.split(",")
-            employee = Employee(name, telephone_number, int(departament_id))
+            key , name , telephone_number , departament_id = line.split(",")
+            employee = Employee(name , telephone_number , departament_id)
             Employee.members[int(key)] = employee
 
+    with open('storage/departamente.txt') as myfile:
+        for line in myfile:
+            key, name, manager_id = line.split(",")
+            departament = Departament(name, manager_id)
+            Departament.members[int(key)] = departament
 
-with open('storage/departamente.txt') as myfile:
-    for line in myfile:
-        a, b, c = line.split(",")
-        key = a
-        value = [b, c]
-        Departament.members[key] = value
+    with open('storage/produse.txt') as myfile:
+        for line in myfile:
+            key, name, price, departament_id = line.split(",")
+            product = Product(name, price, departament_id)
+            Product.members[int(key)] = product
 
-with open('storage/produse.txt') as myfile:
-    for line in myfile:
-        a, b, c, d = line.split(",")
-        key = a
-        value = [b, c, d]
-        Product.members[key] = value
-
-with open('storage/vanzari.txt') as myfile:
-    for line in myfile:
-        a, b, c, d, e, f = line.split(",")
-        key = a
-        value = [b, c, d, e, f]
-        Sale.members[key] = value
+    with open('storage/vanzari.txt') as myfile:
+        for line in myfile:
+            key, product_id, year, month, day, employee_id = line.split(",")
+            sale = Sale(product_id, year, month, day, employee_id)
+            Sale.members[int(key)] = sale
 
 begin = None
 while begin != 'q':
@@ -60,11 +56,9 @@ while begin != 'q':
         Departament.create_departament()
 
     if begin == '3':
-        read_file()
         Employee.print_users()
 
     if begin == '4':
-        read_file()
         Departament.print_departament()
 
     if begin == '5':
@@ -80,14 +74,12 @@ while begin != 'q':
         Sale.create_sale()
 
     if begin == '9':
-        save_file()
         Sale.print_sales()
 
     if begin == '10':
         Product.create_product()
 
     if begin == '11':
-        save_file()
         Product.print_product()
 
     if begin == '12':
@@ -101,6 +93,10 @@ while begin != 'q':
 
     if begin == 's':
         save_file()
+
+    if begin == 'r':
+        read_file()
+
 
     print('1:Adauga un nou angajat .')
     print()
@@ -131,6 +127,8 @@ while begin != 'q':
     print('14:Printati pretul cel mai mare dintre produse!')
     print()
     print('S:Salvati datele introduse')
+    print()
+    print('R:Incarcati baza de date')
     print()
     print('Q:Iesire.')
     print()
