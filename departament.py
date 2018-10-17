@@ -1,3 +1,6 @@
+from Dep_class_object import read_employee_id
+
+
 class Departament:
     departament_current_idx = 1
     members = {}
@@ -30,7 +33,7 @@ class Departament:
 
         from employee import Employee
         if Employee.members:
-            from Dep_class_object import read_employee_id
+
             manager_id = read_employee_id()
         else:
             manager_id = None

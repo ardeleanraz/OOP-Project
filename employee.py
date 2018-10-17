@@ -1,3 +1,6 @@
+from Dep_class_object import read_departament_id
+
+
 class Employee:
     employee_current_idx = 1
     members = {}
@@ -14,9 +17,6 @@ class Employee:
         self.departament_id = departament_id
 
 
-
-
-    @staticmethod
     def read_employee_id():
 
         print(Employee.members)
@@ -28,7 +28,7 @@ class Employee:
             return None
 
 
-
+    @staticmethod
     def create_users():
 
         name = input('Numele angajatului este:')

@@ -1,3 +1,5 @@
+from Dep_class_object import read_departament_id
+
 
 class Product:
     product_current_idx = 1
@@ -31,7 +33,7 @@ class Product:
 
         from departament import Departament
         if Departament.members:
-            from read import read_departament_id
+
             departament_id = read_departament_id()
             name = input('Numele produsului este:')
             price = input('Pretul produsului este:')

@@ -3,6 +3,7 @@ from sales import Sale
 from departament import Departament
 from product import Product
 
+
 def save_file():
     with open('storage/angajati.txt', 'w') as myfile:
         for key, value in Employee.members.items():
@@ -20,42 +21,39 @@ def save_file():
         for key, value in Product.members.items():
             myfile.write("{},{}\n".format(key, value))
 
+
 def read_file():
     with open('storage/angajati.txt') as myfile:
         for line in myfile:
-            a,b,c,d =line.split(",")
+            a, b, c, d = line.split(",")
             key = a
-            value = [b,c,d]
+            value = [b, c, d]
             Employee.members[key] = value
 
 
-    with open('storage/departamente.txt') as myfile:
-        for line in myfile:
-            a,b,c = line.split(",")
-            key = a
-            value = [b,c]
-            Departament.members[key] = value
+with open('storage/departamente.txt') as myfile:
+    for line in myfile:
+        a, b, c = line.split(",")
+        key = a
+        value = [b, c]
+        Departament.members[key] = value
 
-    with open('storage/produse.txt') as myfile:
-        for line in myfile:
-            a,b,c,d = line.split(",")
-            key = a
-            value = [b,c,d]
-            Product.members[key] = value
+with open('storage/produse.txt') as myfile:
+    for line in myfile:
+        a, b, c, d = line.split(",")
+        key = a
+        value = [b, c, d]
+        Product.members[key] = value
 
-
-    with open('storage/vanzari.txt') as myfile:
-        for line in myfile:
-            a,b,c,d,e,f = line.split(",")
-            key = a
-            value = [b,c,d,e,f]
-            Sale.members[key] = value
-
-
+with open('storage/vanzari.txt') as myfile:
+    for line in myfile:
+        a, b, c, d, e, f = line.split(",")
+        key = a
+        value = [b, c, d, e, f]
+        Sale.members[key] = value
 
 begin = None
 while begin != 'q':
-
     if begin == '1':
         Employee.create_users()
 
@@ -105,10 +103,6 @@ while begin != 'q':
     if begin == 's':
         save_file()
 
-
-
-
-
     print('1:Adauga un nou angajat .')
     print()
     print('2:Adauga un nou departament.')
@@ -137,8 +131,8 @@ while begin != 'q':
     print()
     print('14:Printati pretul cel mai mare dintre produse!')
     print()
-    print('Q:Iesire.')
-    print()
     print('S:Salvati datele introduse')
+    print()
+    print('Q:Iesire.')
     print()
     begin = input('Choose a option!:')
