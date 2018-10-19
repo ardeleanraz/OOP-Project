@@ -1,12 +1,9 @@
-
-
-
 class Sale:
     sale_current_idx = 1
     members = {}
     """Represent any sales"""
 
-    def __init__(self,product_id,year , month, day , employee_id):
+    def __init__(self, product_id, year, month, day, employee_id):
         """
         :param int|None product_id : name of product
         :param int|None year: the year of sale
@@ -20,7 +17,6 @@ class Sale:
         self.month = month
         self.day = day
         self.employee_id = employee_id
-
 
     @staticmethod
     def create_sale():
@@ -45,20 +41,14 @@ class Sale:
             Sale.members[Sale.sale_current_idx] = sale
             Sale.sale_current_idx += 1
 
-
-
-
     def print_sales():
         print(Sale.members)
 
-
     def __str__(self):
-      return 'Product_id:' +  str(self.product_id) + ',' + 'Year/Month/Day:' +str(self.year) + '/' + str(self.month) + '/' + str(self.day) + ',' +'Employee_id:' + str(self.employee_id)
-
+        return 'Product_id:' + str(self.product_id) + ',' + 'Year/Month/Day:' + str(self.year) + ',' + '/' + str(
+            self.month) + ',' + '/' + str(self.day) + ',' + 'Employee_id:' + str(self.employee_id)
 
     def __repr__(self):
-        return "{product_id},{year}/{month}/{day},{employee_id}".format(product_id =self.product_id, year=self.year,
-                                                                        month=self.month, day=self.day, employee_id=self.employee_id)
-
-
-
+        return "{product_id},{year},{month},{day},{employee_id}".format(product_id=self.product_id, year=self.year,
+                                                                        month=self.month, day=self.day,
+                                                                        employee_id=self.employee_id)

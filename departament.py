@@ -81,7 +81,7 @@ class Departament:
             print(o)
 
     def __str__(self):
-        return 'Departament_name:' + self.name + ',' + 'Manager_id:' + str(self.manager_id)
+        return  self.name + ',' + str(self.manager_id)
 
     def __repr__(self):
         return "{name}, {manager_id}".format(name=self.name, manager_id=self.manager_id)

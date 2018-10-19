@@ -5,21 +5,37 @@ from product import Product
 
 
 def save_file():
+    l1 = []
+    s1 = ''
     with open('storage/angajati.txt', 'w') as myfile:
         for key, value in Employee.members.items():
-            myfile.write("{},{}\n ".format(key, value))
+            l1.append(str(key) + ',' + str(value))
+            s1 = '\n'.join(l1)
+        myfile.write(s1)
 
+    l2 = []
+    s2 = ''
     with open('storage/departamente.txt', 'w') as myfile:
         for key, value in Departament.members.items():
-            myfile.write("{},{}\n ".format(key, value))
+            l2.append(str(key) + ',' + str(value))
+            s2 = '\n'.join(l2)
+        myfile.write(s2)
 
+    l3 = []
+    s3 = ''
     with open('storage/vanzari.txt', 'w') as myfile:
         for key, value in Sale.members.items():
-            myfile.write("{},{}\n ".format(key, value))
+            l3.append(str(key) + ',' + str(value))
+            s3 = '\n'.join(l3)
+        myfile.write(s3)
 
+    l4 = []
+    s4 = ''
     with open('storage/produse.txt', 'w') as myfile:
         for key, value in Product.members.items():
-            myfile.write("{},{}\n ".format(key, value))
+            l4.append(str(key) + ',' + str(value))
+            s4 = '\n'.join(l4)
+        myfile.write(s4)
 
 
 def read_file():
@@ -37,21 +53,31 @@ def read_file():
     with open('storage/departamente.txt') as myfile:
         for line in myfile:
             key, name, manager_id = line.split(",")
-            departament = Departament(name, manager_id)
+            manager_id = manager_id.strip
+            if manager_id == "None":
+                departament = Departament(name, None)
+            else:
+                departament = Departament(name, manager_id)
+
             Departament.members[int(key)] = departament
 
     with open('storage/produse.txt') as myfile:
         for line in myfile:
             key, name, price, departament_id = line.split(",")
-            product = Product(name, price, departament_id)
+            departament_id = departament_id.strip()
+            if departament_id == "None":
+                product = Product(name, price, None)
+            else:
+                product = Product(name, price, departament_id)
+
             Product.members[int(key)] = product
+
 
     with open('storage/vanzari.txt') as myfile:
         for line in myfile:
             key, product_id, year, month, day, employee_id = line.split(",")
             sale = Sale(product_id, year, month, day, employee_id)
             Sale.members[int(key)] = sale
-
 
 begin = None
 while begin != 'q':
